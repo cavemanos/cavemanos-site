@@ -34,17 +34,17 @@
   </script>
   <style>
     :root {
-      --bg: #090b10;
-      --surface: rgba(255, 255, 255, 0.03);
-      --surface-strong: rgba(255, 255, 255, 0.05);
-      --line: rgba(255, 255, 255, 0.1);
-      --line-soft: rgba(255, 255, 255, 0.05);
-      --text: #f3f4f6;
-      --muted: #a4acb9;
-      --muted-strong: #cbd2dc;
-      --accent: #d8dde6;
-      --shadow: 0 28px 60px rgba(0, 0, 0, 0.36);
-      --radius: 24px;
+      --bg: #080a0f;
+      --surface: rgba(255, 255, 255, 0.025);
+      --surface-strong: rgba(255, 255, 255, 0.04);
+      --line: rgba(255, 255, 255, 0.085);
+      --line-soft: rgba(255, 255, 255, 0.045);
+      --text: #f5f7fa;
+      --muted: #98a3b3;
+      --muted-strong: #cfd6df;
+      --accent: #e4e8ee;
+      --shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+      --radius: 26px;
     }
 
     * {
@@ -59,11 +59,11 @@
       margin: 0;
       min-height: 100vh;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 24%),
         var(--bg);
       color: var(--text);
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.5;
+      line-height: 1.45;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -74,10 +74,10 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(to right, transparent, rgba(255, 255, 255, 0.03) 50%, transparent),
-        linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.018) 50%, transparent);
+        linear-gradient(to right, transparent, rgba(255, 255, 255, 0.026) 50%, transparent),
+        linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.014) 50%, transparent);
       background-size: 100% 1px, 1px 100%;
-      opacity: 0.18;
+      opacity: 0.14;
     }
 
     a {
@@ -114,7 +114,7 @@
     .frame {
       width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 20px 0 36px;
+      padding: 18px 0 32px;
     }
 
     .site-header {
@@ -122,10 +122,10 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      padding: 12px 4px 24px;
+      padding: 12px 4px 20px;
       color: var(--muted);
-      font-size: 0.88rem;
-      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
@@ -154,11 +154,11 @@
     .masthead {
       position: relative;
       overflow: hidden;
-      padding: clamp(36px, 8vw, 88px);
+      padding: clamp(34px, 7vw, 78px);
       border: 1px solid var(--line);
       border-radius: calc(var(--radius) + 6px);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
         rgba(9, 11, 16, 0.94);
       box-shadow: var(--shadow);
     }
@@ -168,16 +168,16 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 28%),
-        linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02));
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.045), transparent 26%),
+        linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.018));
       pointer-events: none;
     }
 
     .eyebrow {
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       color: var(--muted);
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -185,49 +185,49 @@
       margin: 0;
       max-width: 10ch;
       font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-size: clamp(3.3rem, 9vw, 6.4rem);
       font-weight: 600;
-      line-height: 0.92;
+      line-height: 0.9;
       letter-spacing: -0.05em;
     }
 
     .tagline {
-      max-width: 13ch;
-      margin: 18px 0 0;
+      max-width: 12ch;
+      margin: 14px 0 0;
       font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      line-height: 1.08;
+      font-size: clamp(1.25rem, 2.8vw, 1.8rem);
+      line-height: 1.05;
       color: var(--muted-strong);
       letter-spacing: -0.03em;
     }
 
     .lede {
-      max-width: 38rem;
-      margin: 28px 0 0;
+      max-width: 34rem;
+      margin: 24px 0 0;
       color: var(--muted);
-      font-size: clamp(1rem, 1.3vw, 1.125rem);
+      font-size: clamp(1rem, 1.2vw, 1.06rem);
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 16px;
+      gap: 14px;
+      margin-top: 14px;
     }
 
     .panel {
-      padding: 26px 24px;
+      padding: 24px 22px;
       border: 1px solid var(--line-soft);
       border-radius: var(--radius);
       background: var(--surface);
     }
 
     .panel h2 {
-      margin: 0 0 14px;
+      margin: 0 0 12px;
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -238,25 +238,25 @@
     }
 
     .panel-primary {
-      grid-column: span 7;
-      min-height: 220px;
+      grid-column: span 8;
+      min-height: 208px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.018)),
         var(--surface);
     }
 
     .panel-primary p {
-      max-width: 30rem;
-      font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-      line-height: 1.5;
+      max-width: 28rem;
+      font-size: clamp(1.04rem, 1.45vw, 1.18rem);
+      line-height: 1.52;
     }
 
     .panel-secondary {
-      grid-column: span 5;
+      grid-column: span 4;
       display: grid;
       align-content: space-between;
-      gap: 18px;
-      min-height: 220px;
+      gap: 16px;
+      min-height: 208px;
       background: var(--surface-strong);
     }
 
@@ -270,9 +270,9 @@
     .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 20px;
+      gap: 10px 16px;
       align-items: baseline;
-      margin-top: 12px;
+      margin-top: 8px;
     }
 
     .contact-label {
@@ -282,21 +282,21 @@
       text-transform: uppercase;
     }
 
-    .panel-tertiary {
-      grid-column: span 4;
+    .panel-wide {
+      grid-column: span 7;
     }
 
-    .panel-wide {
-      grid-column: span 8;
+    .panel-tertiary {
+      grid-column: span 5;
     }
 
     .footer {
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      padding: 20px 4px 0;
+      padding: 18px 4px 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
     }
 
     @media (max-width: 860px) {
@@ -306,7 +306,7 @@
       }
 
       .masthead {
-        padding: 28px 22px;
+        padding: 28px 20px;
       }
 
       .panel-primary,
@@ -351,8 +351,7 @@
         <h1 id="site-title">CavemanOS<span class="hero-tm">™</span></h1>
         <p class="tagline">Built to survive complexity.</p>
         <p class="lede">
-          A dependable, local-first system for tools, workflows, and intelligent
-          interfaces.
+          A dependable, local-first system for tools, workflows, and intelligent interfaces.
         </p>
       </section>
 
@@ -360,9 +359,8 @@
         <article class="panel panel-primary">
           <h2>Overview</h2>
           <p>
-            CavemanOS™ is currently in development with a focus on durable foundations,
-            reduced complexity, and software that feels clear, stable, and ready for real
-            work.
+            CavemanOS™ is currently in development, with a focus on durable foundations,
+            reduced complexity, and software that feels clear under pressure.
           </p>
         </article>
 
@@ -377,8 +375,7 @@
         <article class="panel panel-wide">
           <h2>Position</h2>
           <p>
-            The public surface remains intentionally minimal while the core product
-            develops in private.
+            Built with an emphasis on control, durability, and systems that remain clear as they grow more capable.
           </p>
         </article>
 
