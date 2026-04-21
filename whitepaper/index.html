@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CavemanOS™ Whitepaper | A Local-First Creation Environment</title>
+  <meta
+    name="description"
+    content="CavemanOS™ is a local-first creation environment for builders who want clear systems, portable outputs, and more control over how work gets made."
+  >
+  <meta name="theme-color" content="#080a0f">
+  <link rel="canonical" href="https://cavemanos.com/whitepaper/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.svg">
+  <meta property="og:title" content="CavemanOS™ Whitepaper">
+  <meta
+    property="og:description"
+    content="A local-first creation environment for builders who prefer clear systems."
+  >
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cavemanos.com/whitepaper/">
+  <meta property="og:site_name" content="CavemanOS™">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CavemanOS™ Whitepaper">
+  <meta
+    name="twitter:description"
+    content="A local-first creation environment for builders who prefer clear systems."
+  >
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "CavemanOS™: A Local-First Creation Environment",
+      "name": "CavemanOS™ Whitepaper",
+      "url": "https://cavemanos.com/whitepaper/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CavemanOS™"
+      },
+      "description": "CavemanOS™ is a local-first creation environment for builders who want clear systems, portable outputs, and more control over how work gets made."
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #080a0f;
+      --surface: rgba(255, 255, 255, 0.025);
+      --surface-strong: rgba(255, 255, 255, 0.04);
+      --line: rgba(255, 255, 255, 0.085);
+      --line-soft: rgba(255, 255, 255, 0.045);
+      --text: #f5f7fa;
+      --muted: #98a3b3;
+      --muted-strong: #cfd6df;
+      --accent: #e4e8ee;
+      --shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+      --radius: 26px;
+      --measure: 46rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(to right, transparent, rgba(255, 255, 255, 0.026) 50%, transparent),
+        linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.014) 50%, transparent);
+      background-size: 100% 1px, 1px 100%;
+      opacity: 0.14;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration-color: rgba(243, 244, 246, 0.35);
+      text-underline-offset: 0.22em;
+    }
+
+    a:hover {
+      text-decoration-color: rgba(243, 244, 246, 0.7);
+    }
+
+    a:focus-visible,
+    .skip-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: -48px;
+      padding: 10px 14px;
+      background: #10141d;
+      color: var(--text);
+      border-radius: 12px;
+      z-index: 10;
+    }
+
+    .skip-link:focus {
+      top: 18px;
+    }
+
+    .frame {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0 32px;
+    }
+
+    .site-header,
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 4px 20px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      padding: 18px 4px 0;
+      font-size: 0.88rem;
+      align-items: flex-start;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.18rem;
+      color: var(--muted-strong);
+      text-decoration: none;
+    }
+
+    .brand-mark,
+    h1,
+    .deck {
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    }
+
+    .brand-mark {
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      text-transform: none;
+    }
+
+    .brand-tm,
+    .hero-tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      letter-spacing: 0.04em;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .site-nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: clamp(34px, 7vw, 78px);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+        rgba(9, 11, 16, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 10ch;
+      font-size: clamp(3.1rem, 8vw, 5.8rem);
+      font-weight: 600;
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+    }
+
+    .deck {
+      max-width: 14ch;
+      margin: 14px 0 0;
+      font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+      line-height: 1.08;
+      color: var(--muted-strong);
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      max-width: var(--measure);
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.2vw, 1.06rem);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .panel {
+      padding: 24px 22px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .panel h2 {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .panel p {
+      max-width: var(--measure);
+      margin: 0;
+      color: var(--muted-strong);
+    }
+
+    .panel ul {
+      max-width: var(--measure);
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted-strong);
+    }
+
+    .panel li + li {
+      margin-top: 8px;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .principle {
+      padding: 18px 18px 20px;
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      background: var(--surface-strong);
+    }
+
+    .principle h3 {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .principle p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: var(--muted);
+    }
+
+    .faq {
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item {
+      padding: 18px 18px 20px;
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      background: var(--surface-strong);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    @media (max-width: 860px) {
+      .frame {
+        width: min(100%, calc(100% - 24px));
+      }
+
+      .hero {
+        padding: 28px 20px;
+      }
+
+      .site-header,
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .principles {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="frame">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="CavemanOS home">
+        <span class="brand-mark">CavemanOS</span><span class="brand-tm">™</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <article>
+        <section class="hero">
+          <p class="eyebrow">Whitepaper</p>
+          <h1>CavemanOS<span class="hero-tm">™</span></h1>
+          <p class="deck">A local-first creation environment for builders who prefer clear systems.</p>
+          <p class="lede">
+            CavemanOS™ is designed for people who make real things with computers:
+            software, documents, datasets, simulations, media, and the connective tissue
+            between them.
+          </p>
+        </section>
+
+        <div class="content">
+          <section class="panel" aria-labelledby="abstract-title">
+            <h2 id="abstract-title">Abstract</h2>
+            <p>
+              Modern tooling can be powerful, but it often asks people to tolerate
+              fragmentation, hidden state, and too many moving parts. CavemanOS™ takes the
+              opposite posture. It is a local-first environment built to help individuals
+              and teams turn ideas into structured outputs while keeping behavior legible,
+              results dependable, and workflows close to the machine.
+            </p>
+          </section>
+
+          <section class="panel" aria-labelledby="problem-title">
+            <h2 id="problem-title">Problem</h2>
+            <ul>
+              <li>Work scattered across too many tools</li>
+              <li>Results that are hard to reproduce later</li>
+              <li>Transformation steps that become hard to trust</li>
+              <li>Dependency chains that keep getting heavier</li>
+              <li>Tooling sprawl that adds drag instead of leverage</li>
+            </ul>
+          </section>
+
+          <section class="panel" aria-labelledby="approach-title">
+            <h2 id="approach-title">Approach</h2>
+            <p>
+              CavemanOS™ does not try to make creation feel magical. It tries to make it
+              feel understandable. The goal is to reduce friction between an idea and a
+              usable artifact through workflows that stay clear, portable, compatible with
+              existing tools, and local-first whenever possible.
+            </p>
+          </section>
+
+          <section class="panel" aria-labelledby="principles-title">
+            <h2 id="principles-title">Design Principles</h2>
+            <div class="principles">
+              <div class="principle">
+                <h3>Clarity first</h3>
+                <p>If the system is doing something important, the user should be able to understand that fact.</p>
+              </div>
+              <div class="principle">
+                <h3>Predictable outputs</h3>
+                <p>Results should feel reliable enough to build on, not just interesting in the moment.</p>
+              </div>
+              <div class="principle">
+                <h3>Local-first capability</h3>
+                <p>Work should stay close to where it is owned, inspected, and maintained.</p>
+              </div>
+              <div class="principle">
+                <h3>Portable artifacts</h3>
+                <p>Outputs should travel well across machines, teams, and toolchains.</p>
+              </div>
+              <div class="principle">
+                <h3>Progressive depth</h3>
+                <p>Simple tasks should stay simple, while serious work still has room to deepen.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="capabilities-title">
+            <h2 id="capabilities-title">Example Capabilities</h2>
+            <ul>
+              <li>Scaffold structured projects without losing coherence</li>
+              <li>Assist with technical documentation that stays close to the work</li>
+              <li>Produce reusable configuration and environment templates</li>
+              <li>Support outputs across code, text, data, and media</li>
+              <li>Enable iterative refinement instead of one-shot generation</li>
+              <li>Help organize complex projects over longer time horizons</li>
+            </ul>
+          </section>
+
+          <section class="panel" aria-labelledby="users-title">
+            <h2 id="users-title">Intended Users</h2>
+            <ul>
+              <li>Independent developers</li>
+              <li>Small technical teams</li>
+              <li>Researchers and lab-style builders</li>
+              <li>Operators working around complex systems</li>
+              <li>Educators and technical communicators</li>
+              <li>People working across software, data, and distributed tooling</li>
+            </ul>
+          </section>
+
+          <section class="panel" aria-labelledby="compatibility-title">
+            <h2 id="compatibility-title">Compatibility Goals</h2>
+            <ul>
+              <li>Editors, CLIs, and existing development environments</li>
+              <li>Git and other versioned workflows</li>
+              <li>Local compute resources and offline-capable setups</li>
+              <li>Cloud infrastructure when it genuinely helps</li>
+              <li>Multiple programming languages and execution models</li>
+              <li>Data, automation, and distributed-system tooling</li>
+            </ul>
+          </section>
+
+          <section class="panel" aria-labelledby="direction-title">
+            <h2 id="direction-title">Future Direction</h2>
+            <ul>
+              <li>Deeper interoperability with existing toolchains</li>
+              <li>Cleaner portability between machines and teams</li>
+              <li>Stronger offline behavior</li>
+              <li>Broader support for structured output formats</li>
+              <li>Additional workflow primitives for long-running projects</li>
+            </ul>
+          </section>
+
+          <section class="panel" aria-labelledby="statement-title">
+            <h2 id="statement-title">Statement</h2>
+            <p>
+              Software should feel understandable. Good tools reduce drag without taking
+              ownership away from the person doing the work. The goal is not novelty for
+              its own sake. The goal is to make complex creation feel calmer, clearer, and
+              more durable.
+            </p>
+          </section>
+
+          <section class="panel" aria-labelledby="faq-title">
+            <h2 id="faq-title">FAQ</h2>
+            <div class="faq">
+              <div class="faq-item">
+                <h3>What is CavemanOS™?</h3>
+                <p>A local-first creation environment for building structured digital artifacts without losing the plot.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Is this an AI product?</h3>
+                <p>It can use machine intelligence where it helps, but the point is not automation theater. The point is usable, dependable output.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Does this replace existing tools?</h3>
+                <p>No. It is meant to sit alongside the tools people already know and extend them with a steadier working model.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Who is this for?</h3>
+                <p>Builders, researchers, operators, and technical teams who want more control over how work moves from idea to artifact.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Does it require cloud services?</h3>
+                <p>No. Local-first operation is a core principle. Cloud services can be used when they make sense.</p>
+              </div>
+              <div class="faq-item">
+                <h3>What types of projects?</h3>
+                <p>Software, documents, data, media, simulations, and other structured work.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div>&copy; CavemanOS™</div>
+      <div><a href="mailto:cavemanos@atomicmail.io">cavemanos@atomicmail.io</a></div>
+    </footer>
+  </div>
+</body>
+</html>

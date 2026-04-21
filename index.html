@@ -129,6 +129,22 @@
       text-transform: uppercase;
     }
 
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .site-nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--text);
+    }
+
     .brand {
       display: inline-flex;
       align-items: baseline;
@@ -342,7 +358,9 @@
       <a class="brand" href="/" aria-label="CavemanOS home">
         <span class="brand-mark">CavemanOS</span><span class="brand-tm">™</span>
       </a>
-      <div>Local-first systems</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/whitepaper/">Whitepaper</a>
+      </nav>
     </header>
 
     <main id="content">
@@ -391,7 +409,7 @@
 
     <footer class="footer">
       <div>&copy; CavemanOS™</div>
-      <div>cavemanos.com</div>
+      <div><a href="/whitepaper/">Whitepaper</a></div>
     </footer>
   </div>
 </body>
