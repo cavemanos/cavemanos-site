@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cavemanOS | Local-First Platform for Intelligent Systems</title>
+  <meta
+    name="description"
+    content="cavemanOS is a local-first platform for building software and intelligent systems with structured memory, reproducible environments, and human-guided control."
+  >
+  <link rel="canonical" href="https://cavemanos.com/">
+  <meta property="og:title" content="cavemanOS">
+  <meta
+    property="og:description"
+    content="Local-first platform for building software and intelligent systems with structured memory and reproducible environments."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cavemanos.com/">
+  <meta property="og:site_name" content="cavemanOS">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="cavemanOS">
+  <meta
+    name="twitter:description"
+    content="Local-first platform for building software and intelligent systems."
+  >
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "cavemanOS",
+      "url": "https://cavemanos.com/",
+      "description": "Local-first platform for building software and intelligent systems with structured memory, reproducible environments, and human-guided control."
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-accent: #121a31;
+      --panel: rgba(11, 16, 32, 0.68);
+      --text: #edf2ff;
+      --muted: #a8b3cf;
+      --line: rgba(168, 179, 207, 0.18);
+      --highlight: #7dd3fc;
+      --highlight-2: #f4b860;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.18), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(244, 184, 96, 0.18), transparent 22%),
+        linear-gradient(180deg, var(--bg-accent) 0%, var(--bg) 60%, #090d18 100%);
+    }
+
+    .shell {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero {
+      padding: 56px 28px 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--highlight);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(125, 211, 252, 0.08);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 12ch;
+      font-size: clamp(3rem, 7vw, 5.75rem);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+    }
+
+    .tagline {
+      max-width: 720px;
+      margin: 24px 0 0;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      color: var(--muted);
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      padding: 12px 28px 0;
+    }
+
+    .card {
+      grid-column: span 12;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--highlight);
+    }
+
+    .flow {
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .split {
+      grid-column: span 6;
+    }
+
+    .status {
+      color: var(--highlight-2);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      padding: 28px;
+      color: rgba(237, 242, 255, 0.58);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        padding: 36px 18px 16px;
+      }
+
+      .panels {
+        padding: 12px 18px 0;
+      }
+
+      .split {
+        grid-column: span 12;
+      }
+
+      .footer {
+        padding: 22px 18px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Private product, public landing site</div>
+      <h1>cavemanOS</h1>
+      <p class="tagline">
+        A local-first platform for building software and intelligent systems with minimal
+        complexity and maximum control.
+      </p>
+    </section>
+
+    <section class="panels">
+      <article class="card">
+        <h2>Model</h2>
+        <div class="flow">idea -> approval -> generation -> placement -> execution</div>
+      </article>
+
+      <article class="card split">
+        <h2>Concepts</h2>
+        <ul>
+          <li>local-first architecture</li>
+          <li>structured project memory</li>
+          <li>human + AI collaboration</li>
+          <li>reproducible environments</li>
+          <li>durable software artifacts</li>
+          <li>transparent system layers</li>
+        </ul>
+      </article>
+
+      <article class="card split">
+        <h2>Use Cases</h2>
+        <ul>
+          <li>local AI development environments</li>
+          <li>agent operating systems</li>
+          <li>programmable workspaces</li>
+          <li>reproducible research systems</li>
+          <li>simulation platforms</li>
+          <li>structured knowledge environments</li>
+        </ul>
+      </article>
+
+      <article class="card split">
+        <h2>Status</h2>
+        <p class="status">Active development</p>
+        <p>Core product development remains in a private repository.</p>
+      </article>
+
+      <article class="card split">
+        <h2>Direction</h2>
+        <p>
+          Built for durable, inspectable systems instead of opaque automation layers and
+          heavyweight infrastructure.
+        </p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div>&copy; cavemanOS</div>
+    </footer>
+  </main>
+</body>
+</html>
