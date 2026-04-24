@@ -1,10 +1,15 @@
-# CavemanOS™
+# CavemanOS
 
-Built to survive complexity.
+**Website:** [https://cavemanos.com](https://cavemanos.com)
 
-CavemanOS™ is a dependable, local-first system for tools, workflows, and intelligent interfaces.
+CavemanOS is a local-first AI operating system for building, thinking, and creating without cloud dependence.
 
-This repository contains the public marketing site for `cavemanos.com`.
+This repository contains the public marketing site for [cavemanos.com](https://cavemanos.com).
+
+## Links
+
+- Homepage: [https://cavemanos.com](https://cavemanos.com)
+- Whitepaper: [https://cavemanos.com/whitepaper/](https://cavemanos.com/whitepaper/)
 
 ## Status
 
