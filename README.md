@@ -10,6 +10,7 @@ This repository contains the public marketing site for [cavemanos.com](https://c
 
 - Homepage: [https://cavemanos.com](https://cavemanos.com)
 - Whitepaper: [https://cavemanos.com/whitepaper/](https://cavemanos.com/whitepaper/)
+- X / Twitter: [@GangOver9000](https://x.com/GangOver9000)
 
 ## Status
 
